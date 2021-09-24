@@ -78,7 +78,7 @@ sumGLS <- function(model){ # summary function GLS
     }
 
   # data 
-  data <- read.csv("data1.csv")
+  data <- read.csv("data.csv")
   row.names(data) <- data$Species
 
   # Species-specific body mass
@@ -99,10 +99,10 @@ sumGLS <- function(model){ # summary function GLS
         #  [1] 172
   phylo <- treedata(phy,ICM, warnings = F)$phy
   phylosig(phylo, ICM, method = "lambda", test = T)
-        # Phylogenetic signal lambda : 0.86979 
-        # logL(lambda) : 262.945 
-        # LR(lambda=0) : 58.0754 
-        # P-value (based on LR test) : 2.5226e-14 
+          # Phylogenetic signal lambda : 0.685124 
+          # logL(lambda) : 215.992 
+          # LR(lambda=0) : 33.1224 
+          # P-value (based on LR test) : 8.65347e-09 
 
   # phylogenetic signal of Cancer prevalence ===========================
   CMR <- data$CMR; names(CMR) <- data$Species
@@ -695,7 +695,7 @@ sumGLS <- function(model){ # summary function GLS
   CMR_M1 <- CMR_M[!is.na(CMR_M) & !is.na(CMR_F)]
   CMR_F1 <- CMR_F[!is.na(CMR_F) & !is.na(CMR_M)]
   tr2 <- treedata(phy,CMR_M1, warnings = F)$phy
-            # phyl.pairedttest(tr2,CMR_M1,CMR_F1)
+  phyl.pairedttest(tr2,CMR_M1,CMR_F1)
             # Phylogenetic paired t-test:
             #   
             #   t = 0.520704, df = 33, p-value = 0.60605
@@ -724,7 +724,7 @@ sumGLS <- function(model){ # summary function GLS
   ICM_M1 <- ICM_M[!is.na(ICM_M) & !is.na(CMR_F)]
   CMR_F1 <- CMR_F[!is.na(CMR_F) & !is.na(ICM_M)]
   tr2 <- treedata(phy,ICM_M1, warnings = F)$phy
-            # phyl.pairedttest(tr2,ICM_M1,CMR_F1)
+  phyl.pairedttest(tr2,ICM_M1,CMR_F1)
             # 
             # Phylogenetic paired t-test:
             #   
