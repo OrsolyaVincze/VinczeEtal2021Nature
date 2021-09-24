@@ -1,0 +1,44 @@
+This repository provides data and code to reproduce results presented in the article:
+ 
+ "Cancer risk across mammals",
+ 
+ by Orsolya Vincze, Fernando Colchero, Jean-Francois Lemaitre, Dalia A. Conde, Samuel Pavard, Margaux Bieuville, Araxi O. Urrutia, Beata Ujvari, Amy M. Boddy, Carlo C. Maley, Frédéric Thomas & Mathieu Giraudeau.
+
+Files included are:
+1000_random_phylogenies_Vertlife.nex - Conmtains 1000 random phylogenies, as downloaded from Vertlife.org
+
+consensus_phylogeny.tre - Consensus phylogeny generated based on 1000_random_phylogenies_Vertlife.nex 
+
+code.R - R code to reproduce results presented in the article. The code also provides information on the software environment for the sake of reproducibility.
+
+data.csv - Database containing species-specific cancer mortality risk, sample sizes, diet, body mass, sexual maturity and adult life expectancy. Included variables are as follows:
+	Species     	- Binomial scientific name of the taxa
+	order       	- Taxonomic order of the species
+	FemaleMeanMass 	- Average body mass of adult females (kg)
+	MaleMeanMass   	- Average body mass of adult males (kg)
+	CMR	       	- Adult cancer mortality risk. The variable takes values between 0 and 1.
+	ICM	       	- Incidence of cancer mortality in adults. The variable takes values between 0 and 1.
+	lifeexp	       	- Average number of days lived after sexual maturity was reached, i.e. remaining life expectancy.
+	Sample	       	- Total number of individuals per species in the database.
+	Deaths	       	- Total number of dead individuals per species in the database.
+	Neoplasia	- Total number of neoplasia cases recorded in each species, that were considered to be significant contributors to the death of the animals. Please note that (although possible) benign tumors are unlikely to be reported here.
+	knownDeaths	- Total number of dead individuals whose pathological records (i.e. most likely causes of death) were identified and entered in the husbandry database.
+	Animal	        - Animal presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Vertebrate	- Vertebrate prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Invertebrate	- Invertebrate prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Fish	        - Fish prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Herptile	- Reptile prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Bird	        - Bird prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+	Mammal          - Mammalian prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014).
+
+Sex-specific_ICM_CMR.csv - Database containing sex-specific cancer mortality risk estimates and associated sample sizes for species in the Carnivora order. Only species with a minimum of 10 males and 10 females with knonw pathological records are shown. Included variables are as follows:
+Species	knownDeathsF	knownDeathsM	ICM_F	ICM_M	CMR_M	CMR_F	order
+	Species     	- Binomial scientific name of the taxa
+	ICM_F	       	- Incidence of cancer mortality in adult females. The variable takes values between 0 and 1.
+	ICM_M	       	- Incidence of cancer mortality in adult males. The variable takes values between 0 and 1.
+	CMR_F	       	- Female adult cancer mortality risk. The variable takes values between 0 and 1.
+	CMR_M	       	- Male adult cancer mortality risk. The variable takes values between 0 and 1.
+	knownDeathsF	- Total number of dead females whose pathological records (i.e. most likely causes of death) were identified and entered in the husbandry database.
+	knownDeathsM	- Total number of dead males whose pathological records (i.e. most likely causes of death) were identified and entered in the husbandry database.
+	order       	- Taxonomic order of the species
+
